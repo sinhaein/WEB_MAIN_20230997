@@ -42,8 +42,6 @@ class SignUp {
       }
     }
 
-
-
   // 다음 페이지 소스 코드 이어서 작성
   
 function join(){ // 회원가입
@@ -55,15 +53,15 @@ function join(){ // 회원가입
     let email = document.querySelector("#emailAddress");
     let p_number = document.querySelector("#phoneNumber");
     let class_check = document.querySelector(".select form-control-lg");
-        
+    
     form.action = "../login/index_join.html";
     form.method = "get";
-        
+     
     if(f_name.value.length === 0 || l_name.value.length === 0 || b_day.value.length === 0 || email.value.length === 0 || p_number.value.length === 0){
-        alert("회원가입 폼에 필수 정보를 입력해주세요.(성별, 분반 제외)");
+        alert("회원가입 폼에 필수 정보를 입력해주세요.(성별, 분반 제외)");
     }
     else{
        session_join_set(); // 회원가입 용 세션 생성 
-       form.submit();
+       form.submit();
     }
 }
