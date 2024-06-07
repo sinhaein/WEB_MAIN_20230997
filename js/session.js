@@ -13,7 +13,7 @@
  function session_set(){ //세션 저장(객체)    
    let id = document.querySelector("#typeEmailX");
    let password = document.querySelector("#typePasswordX");
-   let random = new Date(); // 랜덤 타임스탬프
+   let random = new Date(); // 랜덤 타임스탬s프
    
    const obj = { // 객체 선언
    id : id.value,
@@ -23,8 +23,8 @@
    if (sessionStorage) {
        const objString = JSON.stringify(obj); // 객체 -> JSON 문자열 변환
        let en_text = encrypt_text(objString); // 암호화
-       sessionStorage.setItem("Session_Storage_object", objString);
-       sessionStorage.setItem("Session_Storage_encrypted", en_text);
+       sessionStorage.setItem("Session_Storage_id", objString);
+       sessionStorage.setItem("Session_Storage_password", en_text);
    } else {
        alert("세션 스토리지 지원 x");
    }   
@@ -32,7 +32,7 @@
 
  function session_get() { //세션 읽기
     if (sessionStorage) {
-       return sessionStorage.getItem("Session_Storage_encrypted");
+       return sessionStorage.getItem("Session_Storage_password");
     } else {
         alert("세션 스토리지 지원 x");
     }
@@ -48,17 +48,14 @@
  
  function session_del() {//세션 삭제
     if (sessionStorage) {
-        sessionStorage.removeItem("Session_Storage_test");
+        sessionStorage.removeItem("Session_Storage_id");
+        sessionStorage.removeItem("Session_Storage_password");
         alert('로그아웃 버튼 클릭 확인 : 세션 스토리지를 삭제합니다.');
     } else {
         alert("세션 스토리지 지원 x");
     }
  }
  
- function logout(){
-   session_del(); // 세션 삭제
-   location.href='../index.html';
- }
  
  function session_join_set(){ //세션 저장(객체)    
     let f_name = document.querySelector("#firstName").value;
@@ -84,7 +81,12 @@
     }  
 }
 
+function logout(){
+    session_del(); // 세션 삭제
+    location.href='../index.html';
+  }
 
+document.getElementById("logout_btn").addEventListener('click', logout);
  
 
  

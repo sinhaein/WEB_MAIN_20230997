@@ -14,11 +14,6 @@ const check_xss = (input) => {
     };
 
   
-  function logout(){
-    session_del(); // 세션 삭제
-    location.href='../index.html';
-  }
-  
   function session_del() {//세션 삭제
     if (sessionStorage) {
         sessionStorage.removeItem("Session_Storage_id");
@@ -71,5 +66,11 @@ const check_xss = (input) => {
      alert("세션 스토리지 지원 x");
     } 
   }
+  
+  function logout(){
+    session_del(); // 세션 삭제
+    location.href='../index.html';
+  }
+
   document.getElementById("logout_btn").addEventListener('click', check_input);
   
