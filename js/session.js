@@ -85,7 +85,9 @@ function logout(){
     session_del(); // 세션 삭제
     location.href='../index.html';
   }
-
+/*로그아웃 눌렀을때 세션 삭제가 안된 부분은session.js에다가
+document.getElementById("logout_btn").addEventListener('click', logout); 
+코드를 추가하니까 해결 됐습니다!!!*/
 document.getElementById("logout_btn").addEventListener('click', logout);
  
 

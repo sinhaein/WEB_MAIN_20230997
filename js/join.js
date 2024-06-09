@@ -54,7 +54,10 @@ function join(){ // 회원가입
     let p_number = document.querySelector("#phoneNumber");
     let class_check = document.querySelector(".select form-control-lg");
     
-    form.action = "../login/join_end.html";
+    form.action = "../login/join_end.html"; /*로그아웃 눌렀을때 세션값도 뜨고 다른것도 다 되고 화면도 넘어가긴했는데
+                                              만들어놓은 가입완료 화면이아닌 이문구(Cannot GET /login/index_join.html  )
+                                              만 계속 뜬 부분은 join.js에서 index.html만 써있던부분을 
+                                              form.action = "../login/join_end.html";로 수정하니까 해결 되었습니다!!*/
     form.method = "get";
      
     if(f_name.value.length === 0 || l_name.value.length === 0 || b_day.value.length === 0 || email.value.length === 0 || p_number.value.length === 0){
